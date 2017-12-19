@@ -5,7 +5,7 @@ A simple collaborative whiteboard using socketIO with drawing tools which enable
 
 Cool, isn't ?
 
-Checkout the Whiteboard Live URL - https://whiteboard-socketio.herokuapp.com/
+Checkout the Whiteboard Working Live URL - https://whiteboard-socketio.herokuapp.com/
 
 ## How to use
 
