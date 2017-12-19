@@ -19,7 +19,7 @@ $ npm install
 $ node index.js
 ```
 
-And open browser to `http://localhost:3001`. Optionally, specify a port by supplying the `PORT` env variable.
+And open `http://localhost:3001` in browser. Optionally, specify a port by supplying the `PORT` env variable.
 
 > Note : Enable heroku features:enable http-session-affinity in your instance while deploying to heroku. This is necessary to open communication ports for web sockets.
 
