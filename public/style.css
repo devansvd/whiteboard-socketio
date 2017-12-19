@@ -1,0 +1,284 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background: rgb(55,55,55);
+	font-family: sans-serif;
+}
+
+button {
+	background: #06f;
+	box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
+	color: #fff;
+	outline: none;
+	cursor: pointer;
+	text-shadow: 0 1px #06f;
+	display: inline-block;
+	font-size: 16px;
+	line-height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    margin-left: 20px;
+}
+
+canvas {
+	border-radius: 5px;
+	cursor: url(../img/pen.png), crosshair;
+}
+
+output {
+    background: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: 700;
+}
+
+ul {
+	list-style:none;
+	margin: 0;
+	float: 	left;
+	padding: 10px 0 20px;
+	width: 100%;
+	text-align: center;
+}
+
+ul li, #newColor {
+	display:block;
+	height: 54px;
+	width: 54px;
+	border-radius: 20px;
+	cursor: pointer;
+	border: 0;
+	box-shadow: 0 3px 0 0 #222;
+}
+
+ul li {
+	display: inline-block;
+	margin: 0 5px 10px;
+}
+
+
+/* ID Styles */
+
+#addNewColor {
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
+}
+
+#imageView {
+    position: relative;
+    top: 10px;
+    left: 50%;
+    background: #fff;
+}
+
+#colorSelect {
+	background: #fff;
+	border-radius: 5px;
+	clear: both;
+	margin: 20px auto 0;
+	padding: 10px;
+	width: 30%;
+	position: relative;
+	display:none;
+}
+
+#colorSelect:after {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+#colorSelect button {
+	border: none;
+	border-top: 1px solid #ddd;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+	border-radius: 0 0 5px 5px;
+	clear: both;
+	margin: 10px 0 -7px;
+	padding: 5px 10px;
+	width: 100%;
+}
+
+#container {
+    position: relative;
+}
+
+#controls {
+	min-height: 60px;
+    width: 90%; 
+	margin: 0 auto;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+#curcolorContainer {
+    text-align: center;
+}
+
+#curcolorContainer div {
+    font-weight: bold;
+}
+
+#helpContent {
+    display: none;
+    width: 40%;
+    height: 70%;
+    padding: 40px;
+    background-color: #06f;
+    box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.5), 3px 0 3px 3px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 1px #000;
+    color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 5%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.25em;
+    z-index: 1000;
+}
+
+#helpContent a, #helpContent a:visited {
+    color: maroon;
+    text-decoration: none;
+}
+
+#helpContentX {
+    position: absolute;
+    top: -3%;
+    right: -3%;
+    font-size: 2em;
+    border-radius: 50%;
+    background: red;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#helpContentX:hover {
+    background: white;
+    color: red;
+}
+
+#helpInnerContent {
+    padding-right: 20px;
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#newColor {
+	width: 80px;
+	height: 120px;
+	border-radius: 3px;
+	box-shadow: none;
+	float: left;
+	border: none;
+	margin: 10px 20px 20px 10px;
+
+}
+
+#optionsHolder {
+    text-align: center;
+}
+
+#pen {
+    padding-left: 20px;
+    background-image: url("../img/cursor.png");
+    background-position: center left;
+    background-repeat: no-repeat;
+}
+
+#revealColorSelect {
+	border: none;
+	border-radius: 5px;
+	margin: 10px 0px 10px 20px;
+	padding: 5px 20px;
+}
+
+#sliders p {
+	margin: 8px 0;
+	vertical-align: middle;
+}
+
+#sliders label {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	width: 35px;
+	font-size: 14px;
+	color: #6D574E;
+}
+
+#sliders input {
+	position: relative;
+	top: 2px;
+}
+
+#imageTemp {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+}
+
+#textInput {
+    display: none;
+}
+
+#toolBelt, #toolSize {
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    height: 50px;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+/* Classes */
+
+.colem {
+    color: lime;
+}
+
+.copytext {
+    font-weight: normal;
+}
+
+.selected {
+	border: 7px solid #fff;
+	width: 40px;
+	height: 40px;
+}
+
+.selectedLight {
+	border: 7px solid #000;
+	width: 40px;
+	height: 40px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1024px) {
+    #colorSelect {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    #colorSelect {
+        margin-bottom: 5%;
+    }
+}

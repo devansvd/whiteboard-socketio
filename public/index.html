@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>White Board</title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Collabrative White board">
+    <meta name="author" content="devan">
+		  <style type="text/css">
+      #container { position: relative; }
+      #container{
+        width: 1000px;
+        height: 500px;
+        background-color: #fff;
+        border-radius: 5px;
+      }
+      body{
+        background: rgb(55,55,55) !important;
+      }
+      #imageView { border: 1px solid #000; }
+      #imageTemp { position: absolute; top: 1px; left: 1px; }
+      canvas {
+        border-radius: 5px;
+        cursor: url(../img/pen.png), crosshair;
+    }
+    #text_tool {
+    position: absolute;
+    border: 1px dashed black;
+    outline: 0;
+    z-index:1000 !important;
+    display: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.container .btn.btn-sm{
+    background: #06f;
+    box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.5);
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    text-shadow: 0 1px #06f;
+    display: inline-block;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin-right: 5px;
+}
+.container .btn.btn-sm:active{
+   background: #06f; 
+}
+label{
+    color: #fff;
+}
+    </style>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+	</head>
+    
+	<body style="margin-top:30px;">
+	<div class="container">
+    <div class="alert alert-info" style="padding: 10px !important; margin-bottom: 5px; width:88%">
+      <strong>Socket IO &#10084;</strong>  - This is a Multi-Users Drawing board, Open <a class="linkToBoard" style="cursor:pointer; color: #ff002d;" target="_blank">link</a> in another tab or Open in another computer try drawing simultaneously in both. <strong>Cool, isn't ?</strong>
+    </div>
+        <p style="">
+        <button type="button" class="btn btn-warning btn-sm" value="pencil" id="pencil-button">Pencil</button>
+        <button type="button" class="btn btn-warning btn-sm" value="rect" id="rect-button">Rectangle</button>
+        <button type="button" class="btn btn-warning btn-sm" value="circle" id="circle-button">Circle</button>
+        <button type="button" class="btn btn-warning btn-sm" value="ellipse" id="ellipse-button">Ellipse</button>
+        <button type="button" class="btn btn-warning btn-sm" value="line" id="line-button">Line</button>
+        <button type="button" class="btn btn-warning btn-sm" value="text" id="text-button">Text</button>
+        <button type="button" class="btn btn-warning btn-sm" id="clear-all">Clear All</button>
+        <label for="colour" style="position:absolute;">Colour : </label>
+        <input id="colour-picker" value="#000000" style="width:80px;" class="jscolor {width:243, height:150, position:'right',
+    borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666'}">
+        <!-- <span class="form-group" style="width: 100px;display: inline-block;">
+              <label for="draw-grid">Grid: </label>
+              <select class="form-control" id="draw-grid">
+                <option value="normal">Normal</option>
+                <option value="medium" selected>Medium</option>
+                <option value="large">Large</option>
+                <option value="nogrid">No Grid</option>
+              </select>
+        </span> -->
+        <span class="form-group" style="width: 90px;display: inline-block;">
+          <label for="line-Width">Thickness: </label>
+          <select class="form-control" id="line-Width">
+            <option>2</option>
+            <option>4</option>
+            <option>6</option>
+            <option>8</option>
+            <option>10</option>
+            <option>12</option>
+            <option>14</option>
+          </select>
+        </span>
+         <span class="form-group" style="width: 130px;display: inline-block;">
+          <label for="draw-text-font-family">Font: </label>
+          <select class="form-control" id="draw-text-font-family">
+            <option value="Arial">Arial</option>
+            <option value="Verdana" selected>Verdana</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="serif">serif</option>
+            <option value="sans-serif">sans-serif</option>
+          </select>
+        </span>
+        <span class="form-group" style="width: 90px;display: inline-block;">
+          <label for="draw-text-font-size">Font Size: </label>
+          <select class="form-control" id="draw-text-font-size">
+            <option value="16">16 Px</option>
+            <option value="18">18 Px</option>
+            <option value="20">20 Px</option>
+            <option value="22">22 Px</option>
+            <option value="24">24 Px</option>
+            <option value="26">26 Px</option>
+            <option value="28">28 Px</option>
+            <option value="30">30 Px</option>
+            <option value="32" selected>32 Px</option>
+            <option value="34">34 Px</option>
+            <option value="36">36 Px</option>
+            <option value="38">38 Px</option>
+            <option value="40">40 Px</option>
+          </select>
+        </span>
+        </p>
+
+        <div id="container">
+          <canvas id="imageView" width="1000" height="500">
+            <p>Unfortunately, your browser is currently unsupported by our web
+            application.  We are sorry for the inconvenience. Please use one of the
+            supported browsers listed below, or draw the image you want using an
+            offline tool.</p>
+            <p>Supported browsers: <a href="http://www.opera.com">Opera</a>, <a
+              href="http://www.mozilla.com">Firefox</a>, <a
+              href="http://www.apple.com/safari">Safari</a>, and <a
+              href="http://www.konqueror.org">Konqueror</a>.</p>
+          </canvas>
+        </div>
+    </div>
+    
+<!-- Script files -->
+        <script src='jquery.min.js'></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script src="jscolor/jscolor.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+		 <script src="canvas.js"></script> 
+		<!-- <script src="canvas-backup-latest-v1.js"></script> -->
+
+     <script type="text/javascript">
+      $(document).ready(function(){
+          var board_url = window.location.href;
+          $('.linkToBoard').attr("href",board_url);
+      });
+    </script>
+
+	</body>
+</html>
