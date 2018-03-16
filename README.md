@@ -32,7 +32,7 @@ And open `http://localhost:3001` in browser. Optionally, specify a port by suppl
 
 Thanks and credits to [Socket.IO](https://socket.io/) :yellow_heart:
 
-PS: Previous sessions are not saved on the server, it will not be available for newly joined. Saved sessions if you want.
+PS: Previous sessions are not saved on the server, it will not be available for newly joined. Save sessions if you want.
 
 ## License
 
