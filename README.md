@@ -36,4 +36,4 @@ PS: Previous sessions are not saved on the server, it will not be available for 
 
 ## License
 
-[MIT](https://github.com/Vanthiyadevan/whiteboard-socketio/blob/master/LICENSE.md)
+[MIT](https://github.com/devansvd/whiteboard-socketio/blob/master/LICENSE.md)
