@@ -12,7 +12,7 @@
     "socket.io": "latest"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "npm install && node index.js"
   },
   "author": "Devan",
   "license": "MIT"
